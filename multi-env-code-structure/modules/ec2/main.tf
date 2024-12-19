@@ -70,4 +70,4 @@ resource "aws_instance" "instance" {
 #   }
 }
 
-ansible-playbook -i 172.31.94.12, -e ansible_user=ec2-
+#ansible-playbook -i 172.31.94.12, -e ansible_user=ec2-
