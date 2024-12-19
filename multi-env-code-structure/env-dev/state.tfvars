@@ -1,3 +1,3 @@
-bucket = "terraform143"
+bucket = "terraform11"
 key    = "sample/dev/terraform.tfstate"
 region = "us-east-1"
