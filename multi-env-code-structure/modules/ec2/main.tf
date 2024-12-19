@@ -55,25 +55,14 @@ resource "null_resource" "ansible-pull" {
 			host = aws_instance.instance.private_ip
 		}
 		inline = [
-		"sudo labauto ansible",
-		" ansible-pull -i localhost, -U  https://github.com/rockz11/Roboshop-Ansible.git roboshop.yml--e App_name=${var.component_name} -e env=${var.env} ,
-
-
-	]
+			"sudo labauto ansible",
+		" ansible-pull -i localhost, -U  https://github.com/rockz11/Roboshop-Ansible.git roboshop.yml -e App_name=${var.component_name} -e env=${var.env} "
+		]
 		
-	}
-	
-}
 
-#   provisioner "local-exec" {
-
-#     command = <<EOL
-#  cd /home/ec2-user/Roboshop-Ansible
-# user -e ansible_password=DevOps321 -e App_name=${var.component_name} -e env=${var.env} roboshop.yml
+    
 
 
-# EOL
-#   }
+}     
 
 
-#ansible-playbook -i 172.31.94.12, -e ansible_user=ec2-
