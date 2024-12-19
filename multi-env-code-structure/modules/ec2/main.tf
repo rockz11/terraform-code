@@ -46,7 +46,7 @@ resource "aws_instance" "instance" {
 
     command = <<EOL
  cd /home/ec2-user/Roboshop-Ansible
-ansible-playbook -i ${self.private_ip}, -e ansible_user=ec2-user -e ansible_password=DevOps321 -e app_name=${var.component_name} -e env=${var.env} roboshop.yml
+ansible-playbook -i ${self.private_ip}, -e ansible_user=ec2-user -e ansible_password=DevOps321 -e App_name=${var.component_name} -e env=${var.env} roboshop.yml
 
 
 EOL
