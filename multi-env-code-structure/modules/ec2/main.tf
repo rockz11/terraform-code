@@ -52,8 +52,8 @@ resource "aws_instance" "instance" {
 		
 	}
 	inline = [
-		"sudo labauto ansible"
-		" ansible-playbook -i ${self.private_ip}, -e ansible_user=ec2-user -e ansible_password=DevOps321 -e App_name=${var.component_name} -e env=${var.env} roboshop.yml"
+		"sudo labauto ansible",
+		" ansible-playbook -i ${self.private_ip}, -e ansible_user=ec2-user -e ansible_password=DevOps321 -e App_name=${var.component_name} -e env=${var.env} roboshop.yml",
 
 
 	]
