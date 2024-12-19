@@ -1,10 +1,36 @@
+resource "aws_security_group" "sg" {
+  name = "${var.component_name}-${var.env}-sg"
+  description = "Inbound allow for ${var.component_name}"
 
-resource "aws_instance" "instance" {
-  ami           = "ami-09c813fb71547fc4f"
-  instance_type = "t3.small"
-  vpc_security_group_ids = ["sg-0b308c7134616a7ce"]
-  tags = {
-    Name = "test-${var.env}"
+  ingress {
+    from_port = 22
+    to_port = 22
+    protocol = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    from_port = var.app_port
+    to_port = var.app_port
+    protocol = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+
+  egress {
+    from_port = 0
+    to_port = 0
+    protocol = "TCP"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
-variable "env" {}
+
+
+
+resource "aws_instance" "instance" {
+  ami           = data.aws_ami.ami.id
+  instance_type = var.instance_type
+  vpc_security_group_ids = ["sg-0b308c7134616a7ce"]
+  tags = {
+    Name = "$(component_name)-${var.env}"
+  }
+}
