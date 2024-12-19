@@ -56,7 +56,7 @@ resource "null_resource" "ansible-pull" {
 		}
 		inline = [
 		"sudo labauto ansible",
-		" ansible-playbook -i ${self.private_ip}, -e ansible_user=ec2-user -e ansible_password=DevOps321 -e App_name=${var.component_name} -e env=${var.env} roboshop.yml",
+		" ansible-pull -i localhost, -U  https://github.com/rockz11/Roboshop-Ansible.git roboshop.yml--e App_name=${var.component_name} -e env=${var.env} ,
 
 
 	]
