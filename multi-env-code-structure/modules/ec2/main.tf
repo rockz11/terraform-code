@@ -59,10 +59,8 @@ resource "null_resource" "ansible-pull" {
 		" ansible-pull -i localhost, -U  https://github.com/rockz11/Roboshop-Ansible.git roboshop.yml -e App_name=${var.component_name} -e env=${var.env} "
 		]
 		
-
-    
-
-
-}     
+	}
+}	
+     
 
 
