@@ -49,15 +49,16 @@ resource "aws_instance" "instance" {
 			password = "DevOps32"
 			host = self.private_ip
 		}
-		
-	}
-	inline = [
+		inline = [
 		"sudo labauto ansible",
 		" ansible-playbook -i ${self.private_ip}, -e ansible_user=ec2-user -e ansible_password=DevOps321 -e App_name=${var.component_name} -e env=${var.env} roboshop.yml",
 
 
 	]
-
+		
+	}
+	
+}
 
 #   provisioner "local-exec" {
 
@@ -68,6 +69,6 @@ resource "aws_instance" "instance" {
 
 # EOL
 #   }
-}
+
 
 #ansible-playbook -i 172.31.94.12, -e ansible_user=ec2-
