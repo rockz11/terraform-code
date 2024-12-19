@@ -1,11 +1,4 @@
-terraform {
-  required_providers {
-    null = {
-      source  = "hashicorp/null"
-      version = "3.2.2"
-    }
-  }
-}
+
 resource "aws_security_group" "sg" {
   name = "${var.component_name}-${var.env}-sg"
   description = "Inbound allow for ${var.component_name}"
@@ -41,15 +34,26 @@ resource "aws_instance" "instance" {
   tags = {
     Name = "$(var.component_name)-${var.env}"
   }
-
-  provisioner "local-exec" {
-
-    command = <<EOL
- cd /home/ec2-user/Roboshop-Ansible
-ansible-playbook -i 172.31.94.12, -e ansible_user=ec2-user -e ansible_password=DevOps321 -e App_name=${var.component_name} -e env=${var.env} roboshop.yml
-
-
-EOL
+  connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    password = "DevOps321"
+    host     = self.private_ip
   }
+
+  provisioner "remote-exec" {
+    inline = []
+  }
+
 }
+
+#   provisioner "local-exec" {
+#
+#     command = <<EOL
+#  cd /home/ec2-user/Roboshop-Ansible# ansible-playbook -i ${self.private_ip}, -e ansible_user=ec2-user -e ansible_password=DevOps321 -e App_name=${var.component_name} -e env=${var.env} roboshop.yml
+
+#
+# EOL
+#   }
+# }
 
