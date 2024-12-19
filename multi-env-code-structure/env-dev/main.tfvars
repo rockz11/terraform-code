@@ -46,7 +46,8 @@ app_instances = {
 # }
 
 web_instances = {
-  frontend
+  frontend = {
   app_port = 80
   instance_type = "t3.small"
+  }
 }
