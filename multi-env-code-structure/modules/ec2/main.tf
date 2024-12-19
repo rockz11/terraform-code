@@ -42,12 +42,17 @@ resource "aws_instance" "instance" {
 		Name = "$(var.component_name)-${var.env}"
 	}
 
+
+	
+	
+}
+resource "null_resource" "ansible-pull" {
 	provisioner "remote-exec" {
 		connection {
 			type = "ssh"
 			user = "ec2-user"
 			password = "DevOps32"
-			host = self.private_ip
+			host = aws_instance.instance.private_ip
 		}
 		inline = [
 		"sudo labauto ansible",
