@@ -39,6 +39,7 @@ data "vault_kv_secret_v2" "example" {
   mount = "test"
   name  = "my_credentials"
 }
+variable "vault_kv_secret_v2" {}
 resource "local_file" "foo" {
   content = jsonencode(data.vault_kv_secret_v2.data.json)
   filename = "/tmp/secret"
