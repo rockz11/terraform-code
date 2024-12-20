@@ -25,6 +25,6 @@ data "vault_kv_secret_v2" "example" {
 #   filename = "/tmp/secret"
 # }
 
-output "json" {
-  value = data.vault_kv_secret_v2.example.data_json
+# output "json" {
+#   value = data.vault_kv_secret_v2.example.data_json
 }
