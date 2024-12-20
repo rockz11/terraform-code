@@ -4,6 +4,10 @@ terraform {
       source  = "hashicorp/vault"
       version = "4.3.0"
     }
+    local = {
+      source  = "hashicorp/local"
+      version = "2.5.1"
+    }
   }
 }
 provider "vault" {
@@ -13,6 +17,10 @@ provider "vault" {
 variable "vault_token" {}
 
 data "vault_kv_secret_v2" "example" {
-  name = "my_credentials"
+  name  = "my_credentials"
   mount = "test"
+}
+resource "local_file" "foo" {
+  content = data.vault_kv_secret_v2.example
+  filename = "/tmp/secret"
 }
