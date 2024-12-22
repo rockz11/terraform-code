@@ -45,7 +45,7 @@ resource "null_resource" "ansible-pull" {
 			type = "ssh"
 			user = "data.vault"
 			password = "DevOps32"
-			host = self.public_ip
+			host = aws_instance.instance.private_ip
 		}
 		inline = [
 			"sudo labauto ansible",
