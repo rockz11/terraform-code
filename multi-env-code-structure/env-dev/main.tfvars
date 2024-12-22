@@ -2,9 +2,10 @@
 
 env         = "dev"
 domain_name = "devops11.online"
-zone_id     = "Z00196431INWTJ0O5YT57"
+
 
 db_instances = {
+  zone_id     = "Z00196431INWTJ0O5YT57"
   mongodb = {
     app_port      = 8080
     instance_type = "t3.small"
@@ -24,6 +25,7 @@ db_instances = {
 }
 
 app_instances = {
+  zone_id     = "Z00196431INWTJ0O5YT57"
   cart = {
     app_port      = 8080
     instance_type = "t3.small"
@@ -52,6 +54,7 @@ app_instances = {
 
 
 web_instances = {
+  zone_id     = "Z00196431INWTJ0O5YT57"
   frontend = {
     app_port      = 80
     instance_type = "t3.small"
