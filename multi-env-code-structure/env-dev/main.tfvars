@@ -33,6 +33,11 @@ db_instances = {
     }
 }
 
+
+env         = "dev"
+domain_name = "devops11.online"
+zone_id     = "Z00196431INWTJ0O5YT57"
+
 app_instances = {
   domain_name = "devops11.online"
   zone_id     = "Z00196431INWTJ0O5YT57"
@@ -71,6 +76,9 @@ app_instances = {
 }
 
 
+env         = "dev"
+domain_name = "devops11.online"
+zone_id     = "Z00196431INWTJ0O5YT57"
 
 
 web_instances = {
