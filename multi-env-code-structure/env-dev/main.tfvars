@@ -25,30 +25,30 @@ app_instances = {
   }
 
   catalogue = {
-    app_port = 8080
+    app_port      = 8080
     instance_type = "t3.small"
   }
 
   user = {
-    app_port = 8080
+    app_port      = 8080
     instance_type = "t3.small"
   }
   shipping = {
-    app_port = 8080
+    app_port      = 8080
     instance_type = "t3.small"
   }
   payment = {
-    app_port = 8080
+    app_port      = 8080
     instance_type = "t3.small"
   }
-
+}
 
 
 
 
 web_instances = {
   frontend = {
-    app_port = 80
+    app_port      = 80
     instance_type = "t3.small"
   }
 }
