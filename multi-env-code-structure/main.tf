@@ -3,9 +3,9 @@ module "db_instances" {
   for_each       = var.db_instances
   source         = "./modules/ec2"
   env            = var.env
-  app_port       = each.value["app_port"]
+  app_port       = each.value# ["app_port"]
   component_name = each.key
-  instance_type  = each.value["instance_type"]
+  instance_type  = each.value#["instance_type"]
   vault_token    = var.vault_token
   domain_name    = var.domain_name
   zone_id        = var.zone_id
@@ -15,9 +15,9 @@ module "app_instances" {
   for_each       = var.app_instances
   source         = "./modules/ec2"
   env            = var.env
-  app_port       = each.value["app_port"]
+  app_port       = each.value#["app_port"]
   component_name = each.key
-  instance_type  = each.value["instance_type"]
+  instance_type  = each.value#["instance_type"]
   vault_token    = var.vault_token
   domain_name    = var.domain_name
   zone_id        = var.zone_id
@@ -27,9 +27,9 @@ module "web_instances" {
   for_each       = var.web_instances
   source         = "./modules/ec2"
   env            = var.env
-  app_port       = each.value["app_port"]
+  app_port       = each.value#["app_port"]
   component_name = each.key
-  instance_type  = each.value["instance_type"]
+  instance_type  = each.value#["instance_type"]
   vault_token    = var.vault_token
   domain_name    = var.domain_name
   zone_id        = var.zone_id
