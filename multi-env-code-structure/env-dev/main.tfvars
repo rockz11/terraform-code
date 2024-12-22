@@ -5,8 +5,8 @@ domain_name = "devops11.online"
 zone_id     = "Z00196431INWTJ0O5YT57"
 
 db_instances = {
-  # domain_name = "devops11.online"
-  # zone_id     = "Z00196431INWTJ0O5YT57"
+   domain_name = "devops11.online"
+   zone_id     = "Z00196431INWTJ0O5YT57"
   mongodb = {
     # zone_id     = "Z00196431INWTJ0O5YT57"
     # domain_name = "devops11.online"
@@ -39,8 +39,8 @@ db_instances = {
 # zone_id     = "Z00196431INWTJ0O5YT57"
 
 app_instances = {
-  # domain_name = "devops11.online"
-  # zone_id     = "Z00196431INWTJ0O5YT57"
+  domain_name = "devops11.online"
+  zone_id     = "Z00196431INWTJ0O5YT57"
   cart = {
     # domain_name = "devops11.online"
     # zone_id     = "Z00196431INWTJ0O5YT57"
