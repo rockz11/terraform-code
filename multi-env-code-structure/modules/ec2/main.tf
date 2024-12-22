@@ -43,9 +43,9 @@ resource "null_resource" "ansible-pull" {
 	provisioner "remote-exec" {
 		connection {
 			type = "ssh"
-			user = "ec2-user"
+			user = "data.vault"
 			password = "DevOps32"
-			host = aws_instance.instance.private_ip
+			host = self.public_ip
 		}
 		inline = [
 			"sudo labauto ansible",
