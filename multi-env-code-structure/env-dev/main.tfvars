@@ -1,4 +1,9 @@
-env="dev"
+
+
+env         = "dev"
+domain_name = "devops11.online"
+zone_id     = "Z00196431INWTJ0O5YT57"
+
 db_instances = {
   mongodb = {
     app_port      = 8080
