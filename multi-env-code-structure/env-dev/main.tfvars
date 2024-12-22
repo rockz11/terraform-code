@@ -41,7 +41,7 @@ app_instances = {
     app_port = 8080
     instance_type = "t3.small"
   }
-<<<<<<< HEAD
+
 
 
 # }
@@ -51,7 +51,7 @@ web_instances = {
   app_port = 80
   instance_type = "t3.small"
 }
-=======
+
 }
 
 web_instances = {
@@ -60,4 +60,4 @@ web_instances = {
   instance_type = "t3.small"
   }
 }
->>>>>>> d3bdeab1b661f3b75425482ed35e02e8ad77a5ad
+
