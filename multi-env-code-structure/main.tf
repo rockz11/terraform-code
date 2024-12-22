@@ -30,7 +30,7 @@ module "web_instances" {
   app_port       = each.value["app_port"]
   component_name = each.key
   instance_type  = each.value["instance_type"]
-  vault_token    = var.token
+  vault_token    = var.vault_token
   domain_name    = var.domain_name
   zone_id        = var.zone_id
 }
