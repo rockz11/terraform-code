@@ -7,6 +7,8 @@ module "db_instances" {
   component_name = each.key
   instance_type  = each.value["instance_type"]
   vault_token    = var.token
+  domain_name    = var.domain_name
+  zone_id        = var.zone_id
 }
 module "app_instances" {
   depends_on = [module.db_instances]
@@ -17,6 +19,8 @@ module "app_instances" {
   component_name = each.key
   instance_type  = each.value["instance_type"]
   vault_token    = var.token
+  domain_name    = var.domain_name
+  zone_id        = var.zone_id
 }
 module "web_instances" {
   depends_on = [module.app_instances]
@@ -27,5 +31,7 @@ module "web_instances" {
   component_name = each.key
   instance_type  = each.value["instance_type"]
   vault_token    = var.token
+  domain_name    = var.domain_name
+  zone_id        = var.zone_id
 }
 
