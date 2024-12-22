@@ -44,20 +44,11 @@ app_instances = {
 
 
 
-# }
 
-web_instances = {
-  frontend
-  app_port = 80
-  instance_type = "t3.small"
-}
-
-}
 
 web_instances = {
   frontend = {
-  app_port = 80
-  instance_type = "t3.small"
+    app_port = 80
+    instance_type = "t3.small"
   }
 }
-
