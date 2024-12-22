@@ -1,15 +1,4 @@
-<<<<<<< HEAD
 
-=======
-terraform {
-	required_providers {
-		null = {
-			source  = "hashicorp/null"
-			version = "3.2.2"
-		}
-	}
-}
->>>>>>> d3bdeab1b661f3b75425482ed35e02e8ad77a5ad
 resource "aws_security_group" "sg" {
 	name = "${var.component_name}-${var.env}-sg"
 	description = "Inbound allow for ${var.component_name}"
@@ -39,7 +28,7 @@ resource "aws_security_group" "sg" {
 
 
 resource "aws_instance" "instance" {
-<<<<<<< HEAD
+
   ami           = data.aws_ami.ami.id
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.sg.id]
@@ -68,7 +57,7 @@ resource "aws_instance" "instance" {
 # EOL
 #   }
 # }
-=======
+
 	ami           = data.aws_ami.ami.id
 	instance_type = var.instance_type
 	vpc_security_group_ids = [aws_security_group.sg.id]
@@ -105,5 +94,5 @@ resource "aws_route53_record" "record" {
   
 }
 
->>>>>>> d3bdeab1b661f3b75425482ed35e02e8ad77a5ad
+
 
