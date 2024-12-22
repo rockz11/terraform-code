@@ -28,47 +28,17 @@ resource "aws_security_group" "sg" {
 
 
 resource "aws_instance" "instance" {
-
-  ami           = data.aws_ami.ami.id
-  instance_type = var.instance_type
-  vpc_security_group_ids = [aws_security_group.sg.id]
-  tags = {
-    Name = "$(var.component_name)-${var.env}"
-  }
-  connection {
-    type     = "ssh"
-    user     = "ec2-user"
-    password = "DevOps321"
-    host     = self.private_ip
-  }
-
-  provisioner "remote-exec" {
-    inline = []
-  }
-
-}
-
-#   provisioner "local-exec" {
-#
-#     command = <<EOL
-#  cd /home/ec2-user/Roboshop-Ansible# ansible-playbook -i ${self.private_ip}, -e ansible_user=ec2-user -e ansible_password=DevOps321 -e App_name=${var.component_name} -e env=${var.env} roboshop.yml
-
-#
-# EOL
-#   }
-# }
-
 	ami           = data.aws_ami.ami.id
 	instance_type = var.instance_type
 	vpc_security_group_ids = [aws_security_group.sg.id]
 	tags = {
 		Name = "$(var.component_name)-${var.env}"
 	}
-
-
-	
-	
 }
+
+	
+	
+
 resource "null_resource" "ansible-pull" {
 	provisioner "remote-exec" {
 		connection {
@@ -79,7 +49,7 @@ resource "null_resource" "ansible-pull" {
 		}
 		inline = [
 			"sudo labauto ansible",
-		" ansible-pull -i localhost, -U  https://github.com/rockz11/Roboshop-Ansible roboshop.yml -e component=${var.component_name} -e env=${var.env} -e vault_token=${}var.token}"
+		" ansible-pull -i localhost, -U  https://github.com/rockz11/Roboshop-Ansible roboshop.yml -e component=${var.component_name} -e env=${var.env} -e vault_token=${var.token}"
 		]
 		
 	}
