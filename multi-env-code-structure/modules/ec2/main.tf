@@ -42,18 +42,18 @@ resource "aws_instance" "instance" {
 resource "null_resource" "ansible-pull" {
 	provisioner "remote-exec" {
 		connection {
-			type = "ssh"
-			user = data.vault_generic_secret.ssh.data["username"]
+			type     = "ssh"
+			user     = data.vault_generic_secret.ssh.data["username"]
 			password = data.vault_generic_secret.ssh.data["password"]
-			host = aws_instance.instance.private_ip
+			host     = aws_instance.instance.private_ip
 		}
 		inline = [
 			"sudo labauto ansible",
-		" ansible-pull -i localhost, -U  https://github.com/rockz11/Roboshop-Ansible roboshop.yml -e component=${var.component_name} -e env=${var.env} -e vault_token=${var.vault_token}"
+			" ansible-pull -i localhost, -U  https://github.com/rockz11/Roboshop-Ansible roboshop.yml -e component=${var.component_name} -e env=${var.env} -e vault_token=${var.vault_token}"
 		]
 
 	}
-
+}
 
 resource "aws_route53_record" "record" {
 	zone_id = var.zone_id
